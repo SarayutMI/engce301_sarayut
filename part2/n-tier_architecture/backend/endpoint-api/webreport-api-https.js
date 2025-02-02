@@ -192,8 +192,15 @@ const init = async () => {
             origin: [
                 '*'
             ],
-            headers: ["Access-Control-Allow-Headers", "Access-Control-Allow-Origin", "Accept", "Authorization", "Content-Type", "If-None-Match", "Accept-language"],
-            additionalHeaders: ["Access-Control-Allow-Headers: Origin, Content-Type, x-ms-request-id , Authorization"],
+            headers: [
+              "Access-Control-Allow-Headers", 
+              "Access-Control-Allow-Origin", "Accept", 
+              "Authorization", 
+              "Content-Type", 
+              "If-None-Match", 
+              "Accept-language"],
+            additionalHeaders: [
+              "Access-Control-Allow-Headers: Origin, Content-Type, x-ms-request-id , Authorization"],
             credentials: true
         },
         payload: {
@@ -202,11 +209,12 @@ const init = async () => {
             multipart: true  // <== this is important in hapi 19
         }
     },
-    handler: async (request, res) => {
+    handler: async (request, h) => {
       const { payload } = request;
 
       try {
-        //console.dir(payload);
+        console.dir(payload);
+        
         console.log(payload.AgentCode);
         console.log(payload.AgentName);
         console.log(payload.IsLogin);
@@ -217,14 +225,11 @@ const init = async () => {
         else {
 /*
           const responsedata =
-            await OnlineAgent.OnlineAgentRepo.postOnlineAgentStatus(
-              `${payload.AgentCode}`
+            await OnlineAgent.OnlineAgentRepo.postOnlineAgentStatus(`${payload.AgentCode}`
             );
 */
-
-
-        const responsedata =
-        await OnlineAgent.OnlineAgentRepo.postOnlineAgentStatus(payload.AgentCode, payload.AgentName. payload.IsLogin, payload.AgentStatus);
+         const responsedata =
+         await OnlineAgent.OnlineAgentRepo.postOnlineAgentStatus(payload.AgentCode, payload.AgentName, payload.IsLogin, payload.AgentStatus);
 
           if (responsedata.statusCode == 500)
             return res

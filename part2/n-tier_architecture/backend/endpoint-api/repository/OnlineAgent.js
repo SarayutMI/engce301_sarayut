@@ -1,6 +1,5 @@
 const sql = require('mssql');
 const sqlConfig = require('../sqlConfig')['development'];
-
 const { v4: uuid } = require('uuid');
 
 console.log("sqlConfig: ", sqlConfig);
@@ -45,7 +44,7 @@ async function getOnlineAgentByAgentCode(agentcode) {
     }
 }
 
-
+/*
 async function postOnlineAgentStatus(AgentCode, AgentName, IsLogin, AgentStatus) {
 
     try {
@@ -88,8 +87,9 @@ async function postOnlineAgentStatus(AgentCode, AgentName, IsLogin, AgentStatus)
          });
     }
 }
+*/
 
-/*
+// Version Complete
 
 async function postOnlineAgentStatus(AgentCode, AgentName, IsLogin, AgentStatus) {
 
@@ -153,7 +153,7 @@ async function postOnlineAgentStatus(AgentCode, AgentName, IsLogin, AgentStatus)
 
 }
 
-*/
+
 module.exports.OnlineAgentRepo = {
 
     getOnlineAgentByAgentCode: getOnlineAgentByAgentCode,
