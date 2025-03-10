@@ -16,16 +16,16 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "fs": "0.0.1-security",
+    "express": "^4.21.2",
+    "fs": "^0.0.1-security",
     "is-callable": "^1.2.7",
     "kerberos": "^2.0.1",
-    "mongoose": "^6.8.2",
-    "node-cron": "^3.0.2",
+    "mongoose": "^6.13.8",
+    "node-cron": "^3.0.3",
     "node-windows": "^1.0.0-beta.6",
     "parse": "^3.5.1",
-    "parse-dashboard": "^5.0.0",
-    "parse-server": "^7.3.0"
+    "parse-dashboard": "^6.0.0",
+    "parse-server": "^6.5.10"
   },
   "engines": {
     "node": ">=4.3"
@@ -41,7 +41,9 @@
     "eslint-plugin-promise": "4.2.1",
     "jasmine": "3.6.4",
     "mongodb-runner": "4.8.1",
+    "nodemon": "^3.1.9",
     "nyc": "15.1.0",
     "prettier": "2.2.1"
-  }
+  },
+  "packageManager": "pnpm@10.6.1+sha512.40ee09af407fa9fbb5fbfb8e1cb40fbb74c0af0c3e10e9224d7b53c7658528615b2c92450e74cfad91e3a2dcafe3ce4050d80bda71d757756d2ce2b66213e9a3"
 }

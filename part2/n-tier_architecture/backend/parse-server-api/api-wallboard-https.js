@@ -13,14 +13,14 @@ const databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 var apiport = 4000;
 
 const config = {
-  databaseURI: 'mongodb://wallboard:wallboard1q2w3e4r@127.0.0.1:27017/wallboarddb',
+  databaseURI: 'mongodb://wallboarduser:WB1qazxsw2@192.168.64.5:27017/wallboarddb',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'wallboardapi',
   masterKey: process.env.MASTER_KEY || 'wallboardapi', //Add your master key here. Keep it secret!
   clientKey: 'wallboardapi',
   javascriptKey: 'wallboardapi',
-  serverURL: 'https://192.168.56.10:' + apiport + '/api', // Don't forget to change to https if needed
-  publicServerURL: 'https://192.168.56.10:' + apiport + '/api',
+  serverURL: 'https://127.0.0.1:' + apiport + '/api', // Don't forget to change to https if needed
+  publicServerURL: 'https://127.0.0.1:' + apiport + '/api',
   liveQuery: {
     classNames: ['OnlineAgentLists', 'WallboardBanners','CallAgentSummaries'], // List of classes to support for query subscriptions
   },
@@ -43,7 +43,7 @@ var options = {
   cert: fs.readFileSync('server.crt')
 };
 
-app.use(mountPath, api);
+app.use(mountPath, api.app);
 
 var httpsServer = require('https').createServer(options, app);
 
@@ -52,3 +52,4 @@ httpsServer.listen(apiport, function () {
 });
 
 ParseServer.createLiveQueryServer(httpsServer);
+api.start()
